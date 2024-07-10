@@ -1,0 +1,9 @@
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("https://terraria.wiki.gg/wiki/Tools")
+Soup = BeautifulSoup(page.content, "html.parser")
+Names = Soup.find_all ("a")
+
+for name in Names:
+  print(name.get_text())
